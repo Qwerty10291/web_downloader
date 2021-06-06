@@ -1,0 +1,25 @@
+a.doc_link{
+    max-width:  40%;
+}
+
+h2{
+    margin-bottom: 25px;
+}
+.content-row{
+    border: 1px solid lightblue;
+    margin-bottom: 6px;
+}
+.content-row input{
+    width: 20%;
+}
+.content-row input{
+    margin-right: 5px;
+}
+.content-row span{
+    margin-top: 3px;
+    margin-right: 10px;
+bt
+}
+.doc-buttons button{
+    margin-right: 10px;
+}

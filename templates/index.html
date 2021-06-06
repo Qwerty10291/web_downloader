@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+</head>
+
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand">Название сервиса</a>
+            <form class="d-flex">
+                <button class="btn btn-primary" id='add_document' style="margin-right: 10px;">Добавить</button>
+                <button class="btn btn-success" id="start">Начать</button>
+            </form>
+        </div>
+    </nav>
+    <div class="container-fluid bg-light bg-gradient rounded-3">
+        <div class="row">
+            <div class="col">
+                <h2 class="text-center">Документы</h2>
+                <div class="content" id="content">
+                    <div class="d-flex flex-row aling-items-center content-row">
+                        <span class='doc_id text-primary'>1</span>
+                        <span class="doc_login">Логин</span>
+                        <span class="doc_password">Пароль</span>
+                        <span class="doc_name">Название</span>
+                        <span class="doc_state">false</span>
+                        <a href="https://my.lptracker.ru/rest/telephony/log/autofunnel31711_1575891572543?project_id=34480"
+                            class="doc_link text-truncate">https://my.lptracker.ru/rest/telephony/log/autofunnel31711_1575891572543?project_id=34480</a>
+                        <div class="doc-buttons d-inline-flex flex-row ms-auto">
+                            <button class="btn btn-danger">Удалить</button>
+                            <button class="btn btn-primary">Изменить</button>
+                            <a href="#" class="btn btn-success">Скачать</a>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row aling-items-center content-row">
+                        <span class='doc_id text-primary'>2</span>
+                        <span class="doc_login">Логин</span>
+                        <span class="doc_password">Пароль</span>
+                        <span class="doc_name">Название</span>
+                        <span class="doc_state">false</span>
+                        <a href="https://my.lptracker.ru/rest/telephony/log/autofunnel31711_1575891572543?project_id=34480"
+                            class="doc_link text-truncate">https://my.lptracker.ru/rest/telephony/log/autofunnel31711_1575891572543?project_id=34480</a>
+                        <div class="doc-buttons d-inline-flex flex-row ms-auto">
+                            <button class="btn btn-danger">Удалить</button>
+                            <button class="btn btn-primary">Изменить</button>
+                            <a href="#" class="btn btn-success">Скачать</a>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row aling-items-center content-row">
+                        <span class='doc_id text-primary'>3</span>
+                        <input type="text" class="doc_login" placeholder='логин'>
+                        <input type="text" class="doc_password" placeholder='пароль'>
+                        <input class='doc_name' type="text" value="" placeholder='название'>
+                        <input type="text" class="doc_link" placeholder='ссылка'>
+                        <select class="doc_state">
+                            <option value="false">false</option>
+                            <option value="true">true</option>
+                            <option value="archive">archive</option>
+                        </select>
+                        <div class="doc-buttons d-inline-flex flex-row ms-auto">
+                            <button class="btn btn-success">Сохранить</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
+</body>
+
+</html>
