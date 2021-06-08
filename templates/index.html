@@ -13,10 +13,11 @@
 <body>
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand">Название сервиса</a>
-            <form class="d-flex">
+            <a class="navbar-brand" id='status'></a>
+            <div class="d-flex">
                 <button class="btn btn-primary" id='add_document' style="margin-right: 10px;">Добавить</button>
-                <button class="btn btn-success" id="start">Начать</button>
+                <button class="btn btn-success" id="start" style="margin-right: 10px;">Начать</button>
+                <button class="btn btn-secondary" id="update">Обновить</button>
             </form>
         </div>
     </nav>
@@ -25,35 +26,7 @@
             <div class="col">
                 <h2 class="text-center">Документы</h2>
                 <div class="content" id="content">
-                    <div class="d-flex flex-row aling-items-center content-row">
-                        <span class='doc_id text-primary'>1</span>
-                        <span class="doc_login">Логин</span>
-                        <span class="doc_password">Пароль</span>
-                        <span class="doc_name">Название</span>
-                        <span class="doc_state">false</span>
-                        <a href="https://my.lptracker.ru/rest/telephony/log/autofunnel31711_1575891572543?project_id=34480"
-                            class="doc_link text-truncate">https://my.lptracker.ru/rest/telephony/log/autofunnel31711_1575891572543?project_id=34480</a>
-                        <div class="doc-buttons d-inline-flex flex-row ms-auto">
-                            <button class="btn btn-danger">Удалить</button>
-                            <button class="btn btn-primary">Изменить</button>
-                            <a href="#" class="btn btn-success">Скачать</a>
-                        </div>
-                    </div>
-                    <div class="d-flex flex-row aling-items-center content-row">
-                        <span class='doc_id text-primary'>2</span>
-                        <span class="doc_login">Логин</span>
-                        <span class="doc_password">Пароль</span>
-                        <span class="doc_name">Название</span>
-                        <span class="doc_state">false</span>
-                        <a href="https://my.lptracker.ru/rest/telephony/log/autofunnel31711_1575891572543?project_id=34480"
-                            class="doc_link text-truncate">https://my.lptracker.ru/rest/telephony/log/autofunnel31711_1575891572543?project_id=34480</a>
-                        <div class="doc-buttons d-inline-flex flex-row ms-auto">
-                            <button class="btn btn-danger">Удалить</button>
-                            <button class="btn btn-primary">Изменить</button>
-                            <a href="#" class="btn btn-success">Скачать</a>
-                        </div>
-                    </div>
-                    <div class="d-flex flex-row aling-items-center content-row">
+                    <!-- <div class="d-flex flex-row aling-items-center content-row">
                         <span class='doc_id text-primary'>3</span>
                         <input type="text" class="doc_login" placeholder='логин'>
                         <input type="text" class="doc_password" placeholder='пароль'>
@@ -67,13 +40,14 @@
                         <div class="doc-buttons d-inline-flex flex-row ms-auto">
                             <button class="btn btn-success">Сохранить</button>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
 
         <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
         <script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/index.js') }}"></script>
 </body>
 
 </html>

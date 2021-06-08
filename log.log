@@ -1,0 +1,13 @@
+INFO:werkzeug: * Running on http://127.0.0.1:8000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [08/Jun/2021 23:14:28] "GET /api/docs HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [08/Jun/2021 23:14:29] "GET /status HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [08/Jun/2021 23:14:29] "GET /api/docs HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [08/Jun/2021 23:14:43] "GET /status HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [08/Jun/2021 23:14:43] "GET /api/docs HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [08/Jun/2021 23:14:44] "GET /start HTTP/1.1" 200 -
+ERROR:ewcs:auth error
+INFO:werkzeug:127.0.0.1 - - [08/Jun/2021 23:14:56] "GET /api/docs HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [08/Jun/2021 23:14:57] "GET /status HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [08/Jun/2021 23:14:57] "GET /api/docs HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [08/Jun/2021 23:15:15] "DELETE /api/docs/10 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [08/Jun/2021 23:19:47] "GET /download/docs/3 HTTP/1.1" 200 -
