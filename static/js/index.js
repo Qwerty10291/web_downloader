@@ -60,7 +60,7 @@ function create_document_row(document) {
 
     let button_container = $(`<div class="doc-buttons d-inline-flex flex-row"></div>`)
     let button_delete = $(`<button class="btn btn-danger">Удалить</button>`).click(function () { delete_document(container, document.id) })
-    let button_change = $(`<button class="btn btn-primary">Изменить</button>`).click(function () {create_update_row(container, document.id)})
+    let button_change = $(`<button class="btn btn-primary">Изменить</button>`).click(function () {create_update_row(container, document)})
     let button_load = $(`<a href="/download/docs/${document.id}" class="btn btn-success">Скачать</a>`)
     button_container.append(button_delete).append(button_change).append(button_load)
     container.append(id).append(login).append(password).append(doc_name).append(flag).append(link).append(state).append(button_container)
@@ -114,12 +114,12 @@ function create_add_row() {
     $('#content').append(container)
 }
 
-function create_update_row(container, id){
+function create_update_row(container, document){
     let container_new = $(`<div class="d-flex flex-row aling-items-center content-row"></div>`)
-    let login = $(`<input type="text" class="doc_login" placeholder='логин'>`)
-    let password = $(`<input type="text" class="doc_password" placeholder='пароль'>`)
-    let name = $(`<input class='doc_name' type="text" value="" placeholder='название'>`)
-    let link = $(`<input type="text" class="doc_link" placeholder='ссылка'>`)
+    let login = $(`<input type="text" class="doc_login" placeholder='логин'>`).val(document.user.login)
+    let password = $(`<input type="text" class="doc_password" placeholder='пароль'>`).val(document.user.password)
+    let name = $(`<input class='doc_name' type="text" value="" placeholder='название'>`).val(document.name)
+    let link = $(`<input type="text" class="doc_link" placeholder='ссылка'>`).val(document.link)
     let flag = $(`<select class="doc_state">
                     <option value="false">false</option>
                     <option value="true">true</option>
@@ -133,7 +133,7 @@ function create_update_row(container, id){
             name: name.val(),
             link: link.val(),
             flag: flag.val(),
-            id: id,
+            id: document.id,
         }
         update_document(container_new, data)
     })
