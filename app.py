@@ -28,8 +28,8 @@ def document_download(id):
         file = open(f'documents/{id}.csv', 'rb')
     except FileNotFoundError:
         return 'Документ еще не загружен'
-    
-    return send_file(file, as_attachment=True, mimetype='application/octet-stream', download_name=f'{document.name}.csv')
+    session.close()
+    return send_file(file, as_attachment=True, mimetype='application/octet-stream',  attachment_filename=f'{document.name}.csv')
 
 @app.route('/start')
 def start():

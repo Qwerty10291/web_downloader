@@ -33,20 +33,20 @@ class Downloader:
     def load_users(self) -> List[models.User]:
         self.session = create_session()
         users = self.session.query(models.User).all()
-        print(users)
         return users
 
     def load_all(self):
+        print('started at ', datetime.now().strftime('%H:%M'))
         self.is_loading = True
         errors = 0
         for user_data in self.load_users():
-            print(user_data.login)
             if errors >= 5:
                 time.sleep(180)
-            user = User(user_data, self.session)
+            self.session.expunge(user_data)
+            user = User(user_data)
             if not user.start():
                 errors += 1
-        self.session.commit()
+        self.session.close()
         self.is_loading = False
 
     def create_timer(self):
@@ -69,9 +69,10 @@ class Downloader:
 
 
 class User:
-    def __init__(self, user: models.User, session) -> None:
+    def __init__(self, user: models.User) -> None:
         self.user = user
-        self.db_session = session
+        self.db_session = create_session()
+        self.db_session.add(user)
         self.main_link = 'https://my.lptracker.ru/login.php'
         self.login_link = 'https://my.lptracker.ru/rest/system/login'
         self.session = requests.Session()
@@ -102,6 +103,7 @@ class User:
             self.user.status == 'auth error'
             self.set_status('auth error')
             self.db_session.commit()
+            self.session.close()
             return False
 
         for document in self.user.documents:
@@ -109,7 +111,8 @@ class User:
                 continue
             try:
                 print(document.link)
-                data = self.session.get(document.link)
+                data = self.session.get(document.link, timeout=10)
+                print(data.status_code)
                 if data.status_code != 200:
                     print('404 error', document.link)
                     self.logger.error('404 error: ' + document.link)
@@ -126,4 +129,5 @@ class User:
                 self.logger.error('invalid url: ' + document.link)
                 self.db_session.commit()
                 continue
+        self.session.close()
         return True
