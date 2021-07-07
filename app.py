@@ -46,4 +46,4 @@ def state():
 if __name__ == '__main__':
     global_init()
     downloader = Downloader()
-    app.run('127.0.0.1', port=8000, debug=False)
+    app.run('0.0.0.0', port=8000, debug=False)
