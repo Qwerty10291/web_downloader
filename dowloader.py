@@ -10,8 +10,6 @@ import logging
 import schedule
 import threading
 
-logging.basicConfig(filename='log.log', filemode='w')
-
 
 def singleton(class_):
     instances = {}
@@ -28,7 +26,7 @@ class Downloader:
     def __init__(self) -> None:
         self.is_loading = False
         print('init')
-        self.create_timer()
+        # self.create_timer()
 
     def load_users(self) -> List[models.User]:
         self.session = create_session()

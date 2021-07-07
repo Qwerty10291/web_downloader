@@ -1,0 +1,27 @@
+version: "3"
+services:
+  db:
+    image: postgres:alpine
+    container_name: postgres
+    environment:
+      POSTGRES_PASSWORD: qwerty1029
+      POSTGRES_DB: download
+      POSTGRES_USER: download
+    restart: always
+    ports:
+      - "5432:5432"
+  app:
+    build: .
+    container_name: web
+    ports:
+      - "5000:8000"
+    environment:
+      POSTGRES_HOST: db
+      POSTGRES_USER: download
+      POSTGRES_PASSWORD: qwerty1029
+      POSTGRES_NAME: download
+    restart: always
+    volumes:
+      - "/web_downoader:/web_downoader"
+    depends_on:
+      - "db"
