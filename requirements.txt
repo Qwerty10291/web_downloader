@@ -11,9 +11,7 @@ idna
 itsdangerous
 Jinja2
 MarkupSafe
-numpy
 openpyxl
-pandas
 psycopg2
 pycodestyle
 python-dateutil
