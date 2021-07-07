@@ -2,6 +2,7 @@ import sqlalchemy as sa
 import sqlalchemy.orm as orm
 from sqlalchemy.orm import Session
 import sqlalchemy.ext.declarative as dec
+import os
 
 SqlAlchemyBase = dec.declarative_base()
 
@@ -13,7 +14,11 @@ def global_init():
     if __factory:
         return
 
-    conn_str = f'postgresql+psycopg2://download:qwerty1029@127.0.0.1/download'
+    db_host = os.environ['POSTGRES_HOST']
+    db_user = os.environ['POSTGRES_USER']
+    db_passwd = os.environ['POSTGRES_PASSWORD']
+    db_name = os.environ['POSTGRES_NAME']
+    conn_str = f'postgresql+psycopg2://{db_user}:{db_passwd}@{db_host}/{db_name}'
     print(f"Подключение к базе данных по адресу {conn_str}")
 
     engine = sa.create_engine(conn_str, echo=False)
